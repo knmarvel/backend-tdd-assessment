@@ -6,15 +6,19 @@ __author__ = "???"
 
 
 import sys
+import argparse
 
 
 def create_parser():
-    """Creates and returns an argparse cmd line option parser"""
-    pass
+    parser = argparse.ArgumentParser(description = "Cause argparse help to run")
+    return parser.parse_args()
 
 
 def main(args):
     """Implementation of echo"""
+    args = create_parser()
+    print(args)
+
     pass
 
 

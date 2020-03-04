@@ -5,7 +5,6 @@
 __author__ = "knmarvel"
 
 
-import sys
 import argparse
 
 
@@ -38,16 +37,16 @@ def main():
 
     args = create_parser()
     text = args.text
-    
+
     if args.upper:
         text = text.upper()
-    
+
     if args.lower:
         text = text.lower()
 
     if args.title:
         text = text.title()
-    
+
     print(text)
 
 

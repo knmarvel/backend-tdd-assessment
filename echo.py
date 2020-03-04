@@ -37,21 +37,18 @@ def main():
     """Implementation of echo"""
 
     args = create_parser()
-
+    text = args.text
+    
     if args.upper:
-        if sys.argv[1] == "-u" or sys.argv[1] == "--upper":
-            print(args.text.upper())
-
+        text = text.upper()
+    
     if args.lower:
-        if sys.argv[1] == "-l" or sys.argv[1] == "--lower":
-            print(args.text.lower())
+        text = text.lower()
 
     if args.title:
-        if sys.argv[1] == "-t" or sys.argv[1] == "--title":
-            print(args.text.title())
-
-    else:
-        print(args.text)
+        text = text.title()
+    
+    print(text)
 
 
 if __name__ == '__main__':

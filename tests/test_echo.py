@@ -30,22 +30,18 @@ class TestEcho(unittest.TestCase):
         process = subprocess.Popen(
             ["python", "./echo.py", "-u", "hello"],
             stdout=subprocess.PIPE)
-        args_u = process.args
         stdout, _ = process.communicate()
         stdout_u = stdout.decode("utf-8")
 
         process = subprocess.Popen(
             ["python", "./echo.py", "--upper", "hello"],
             stdout=subprocess.PIPE)
-        args_upper = process.args
         stdout, _ = process.communicate()
         stdout_upper = stdout.decode("utf-8")
 
         usage = open("./USAGEUPPER", "r").read()
         self.assertEquals(stdout_u, usage)
-        self.assertEqual("-u" in args_u, True)
         self.assertEquals(stdout_upper, usage)
-        self.assertEqual("--upper" in args_upper, True)
 
     def test_lower(self):
         """Running the program with -l or --lower as arguments should result with
@@ -56,21 +52,17 @@ class TestEcho(unittest.TestCase):
             ["python", "./echo.py", "-l", "Hello"],
             stdout=subprocess.PIPE)
         stdout, _ = process.communicate()
-        args_l = process.args
         stdout_l = stdout.decode("utf-8")
 
         process = subprocess.Popen(
             ["python", "./echo.py", "--lower", "Hello"],
             stdout=subprocess.PIPE)
-        args_lower = process.args
         stdout, _ = process.communicate()
         stdout_lower = stdout.decode("utf-8")
 
         usage = open("./USAGELOWER", "r").read()
         self.assertEquals(stdout_l, usage)
-        self.assertEqual("-l" in args_l, True)
         self.assertEquals(stdout_lower, usage)
-        self.assertEqual("--lower" in args_lower, True)
 
     def test_title(self):
         """Running the program with -t or --title as arguments should result with
@@ -80,22 +72,18 @@ class TestEcho(unittest.TestCase):
         process = subprocess.Popen(
             ["python", "./echo.py", "-t", "hello"],
             stdout=subprocess.PIPE)
-        args_t = process.args
         stdout, _ = process.communicate()
         stdout_t = stdout.decode("utf-8")
 
         process = subprocess.Popen(
             ["python", "./echo.py", "--title", "hello"],
             stdout=subprocess.PIPE)
-        args_title = process.args
         stdout, _ = process.communicate()
         stdout_title = stdout.decode("utf-8")
 
         usage = open("./USAGETITLE", "r").read()
         self.assertEquals(stdout_t, usage)
-        self.assertEqual("-t" in args_t, True)
         self.assertEquals(stdout_title, usage)
-        self.assertEquals("--title" in args_title, True)
 
     def test_all(self):
         """Running the program with all three arguments should result with

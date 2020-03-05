@@ -9,6 +9,7 @@ import argparse
 
 
 def create_parser():
+    """Defines and provides help for commandline arguments"""
     parser = argparse.ArgumentParser(
         description="Perform transformation on input text.")
     parser.add_argument("text",

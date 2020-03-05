@@ -8,7 +8,7 @@ __author__ = "knmarvel"
 import argparse
 
 
-def create_parser():
+def create_parser(*args):
     """Defines and provides help for commandline arguments"""
     parser = argparse.ArgumentParser(
         description="Perform transformation on input text.")
@@ -30,13 +30,13 @@ def create_parser():
                         action='store_const',
                         const=bool,
                         help="convert text to titlecase")
-    return parser.parse_args()
+    return parser
 
 
 def main():
     """Implementation of echo"""
 
-    args = create_parser()
+    args = create_parser().parse_args()
     text = args.text
 
     if args.upper:
